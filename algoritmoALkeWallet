@@ -1,0 +1,108 @@
+
+		//Bienvenido a Alkewallet
+		//Para comenzar debes crear una cuenta
+		
+		//Ingresa tu rut:
+		//Ingresa tu nombre:
+
+		//[se crea un numero de cuenta y un id de usuario]
+		
+		//hola [usuario], se ha creado una cuenta con los siguientes datos:
+		//Id usuario:
+		//RUT:
+		//No.Cuenta:
+		//Saldo Actual: $0.00
+		
+//		Que operación deseas realizar?
+//		Seleccione (1) para DEPOSITO
+//		Seleccione (2) para RETIRO
+//		Seleccione (3) para TRANSFERENCIAS
+//		Seleccione (4) para CONVERSION DE MONEDA
+//		Seleccione (5) para VER DATOS
+//		Seleccione (6) para SALIR
+		
+		/*
+		 * SI 1
+		 * 	INGRESA EL MONTO A DEPOSITAR
+		 * 	SE MUESTRA:
+		 * 	"TRANSACCION EXITOSA"
+		 * 		"Se ha depositado en la cuenta [no de cuenta]del: [usuario], la cantidad de: [cantidad]
+		 * 		SALDO ACTUAL: [saldo]
+		 * 	"DESEA REALIZAR OTRA OPERACION"
+		 * Seleccione (1) para SI
+		 *  SE MUESTRA MENU INICIAL
+		*  Seleccione (2) para TERMINAR Y SALIR
+		 * 	
+		 * SI 2
+		 * 	SI EL SALDO ES 0
+		 * 		"No es posible hacer retiros de una cuenta en 0"
+		 * 		VUELVE AL MENU INICIAL
+		 * 	SI EL SALDO ES MAYOR A 0
+		 *		INGRESA EL MONTO A RETIRAR 	
+		 *		 * 	SE MUESTRA:
+		 *		"TRANSACCION EXITOSA"
+		 * 		"Se ha retirado de la cuenta [no de cuenta]del: [usuario], la cantidad de: [cantidad]
+		 * 		SALDO ACTUAL: [saldo]
+		 * 		 * 	"DESEA REALIZAR OTRA OPERACION"
+		 * Seleccione (1) para SI
+		 *  SE MUESTRA MENU INICIAL
+		*  Seleccione (2) para TERMINAR Y SALIR	
+		 * SI 3
+		 * 	SI EL SALDO ES 0
+		 * 	"No es posible hacer TRANSFERENCIAS de una cuenta en 0"
+		 * 	VUELVE AL MENU INICIAL
+		 * SI EL SALDO ES MAYOR A 0
+		 *		INGRESA EL NUMERO DE CUENTA
+		 *		INGRESA EL MONTO A TRANSFERIR
+		 *	SI LA CUENTA EXISTE:
+		 *	SE MUESTRA:
+		 *		"TRANSACCION EXITOSA"
+		 *		"Se ha TRANSFERIDO A la cuenta [no de cuenta] del: [usuario], la cantidad de: [cantidad]
+		 * 		SALDO ACTUAL: [saldo]
+		 * 	"DESEA REALIZAR OTRA OPERACION"
+		 * 	Seleccione (1) para SI
+		 *  SE MUESTRA MENU INICIAL
+		 * 	Seleccione (2) para TERMINAR Y SALIR
+		 * SI NO EXISTE 
+		 * 	SE MUESTRA
+		 * 		"La cuenta no existe"
+		 * 	VUELVE A 
+		 * 		INGRESA EL NUMERO DE CUENTA
+		 *		INGRESA EL MONTO A TRANSFERIR
+		 * 
+		 * SI 4
+		 * SE MUESTRA EL SALDO ACTUAL EN DISTINTAS MONEDAS:
+		 	SALDO EN PESOS $[SALDO]
+		 	SALDO EN DOLARES $[DOLARES]
+		 	SALDO EN EUROS $[EUROS]
+		 	DESEA CONVERTIR UN MONTO DISTINTO?:
+		 	Seleccione (1) para SI
+		 	Seleccione (2) para IR AL MENU INICIAL
+		 		SI 1
+		 		INGRESE MONTO: 
+		 		MONTO EN PESOS $[SALDO]
+		 		MONTO EN DOLARES $[DOLARES]
+		 		MONTO EN EUROS $[EUROS]
+		 		DESEA CONVERTIR OTRO MONTO?:
+		 	Seleccione (1) para SI
+		 	Seleccione (2) para IR AL MENU INICIAL
+		 * SI 5
+		 * 		SE MUESTRA
+		 * 		Id usuario: [id]
+				RUT: [rut]
+				No.Cuenta: [cuenta]
+				Saldo Actual: [saldo]
+		 * 		
+		 * 	"DESEA REALIZAR OTRA OPERACION"
+		 * Seleccione (1) para SI
+		 *  SE MUESTRA MENU INICIAL
+		*  Seleccione (2) para TERMINAR Y SALIR
+		 *				
+		 */
+		
+		System.out.println("    _    _ _         __        __    _ _      _   ");
+		System.out.println("   / \  | | | _____  \ \      / /_ _| | | ___| |_ ");
+		System.out.println("  / _ \ | | |/ / _ \  \ \ /\ / / _` | | |/ _ \ __|");
+		System.out.println(" / ___ \| |   <  __/   \ V  V / (_| | | |  __/ |_ ");
+		System.out.println("/_/   \_\_|_|\_\_ _|    \_/\_/ \__,_|_|_|\___|\__|");
+		
