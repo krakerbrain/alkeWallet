@@ -1,60 +1,42 @@
 package test;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import clases.Cuenta;
 import clases.Deposito;
 import clases.Menu;
 
-import org.junit.Before;
-import org.junit.After;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-
 public class DepositoTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final InputStream originalIn = System.in;
-    private final PrintStream originalOut = System.out;
+
+    private Cuenta cuenta;
+    private Menu menuMock;
 
     @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void restoreStreams() {
-        System.setIn(originalIn);
-        System.setOut(originalOut);
+    public void setUp() {
+        cuenta = new Cuenta();
+        menuMock = mock(Menu.class);
     }
 
     @Test
     public void testDepositar() {
-        Cuenta cuenta = new Cuenta(); // Aquí debes inicializar correctamente una cuenta
         Deposito deposito = new Deposito(cuenta);
-        deposito.depositar(100.0); // Realizar depósito de $100
-        assertEquals(100.0, cuenta.getSaldo(), 0.01); // Verificar que el saldo sea 100.0
-    }
+        double monto = 500;
 
-    @Test
-    public void testEjecutarTransaccion() {
-        // Preparar datos de prueba
-        String input = "100\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        // Configurar el comportamiento del mock para solicitar datos
+        doReturn(monto).when(menuMock).solicitaDatosAUsuario("deposito");
 
-        // Ejecutar método bajo prueba
-        Cuenta cuenta = new Cuenta(); // Aquí debes inicializar correctamente una cuenta
-        Deposito deposito = new Deposito(cuenta);
-        Menu menu = new Menu(cuenta); // Debes inicializar correctamente un menú
-        deposito.ejecutarTransaccion(menu);
+        // Ejecutar la transacción de depósito
+        deposito.ejecutarTransaccion(menuMock);
 
-        // Verificar resultados
-        assertEquals("Ingrese el monto de deposito:\n", outContent.toString());
-        assertTrue(outContent.toString().contains("Transacción exitosa: deposito de $100.0\n"));
-        // Verificar que el saldo se actualizó correctamente
-        assertEquals(100.0, cuenta.getSaldo(), 0.01);
+        // Verificar que el saldo se haya actualizado correctamente
+        assertEquals(monto, cuenta.getSaldo(), 0.001);
+
+        // Verificar que se llamó al método transaccionExitosa
+        verify(menuMock).transaccionExitosa("deposito", monto);
     }
 }
