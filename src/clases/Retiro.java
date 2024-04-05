@@ -3,8 +3,8 @@ package clases;
 //Clase Retiro que implementa la interfaz Operacion
 public class Retiro implements Operacion {
 
-	Cuenta cuenta; // Referencia a la cuenta sobre la que se realizará el retiro
-	String tipoOperacion; // Tipo de operación, en este caso, retiro
+	private Cuenta cuenta; // Referencia a la cuenta sobre la que se realizará el retiro
+	private String tipoOperacion; // Tipo de operación, en este caso, retiro
 
 // Constructor de la clase Retiro
 	public Retiro(Cuenta cuenta) {

@@ -22,19 +22,20 @@ El proyecto utiliza las siguientes tecnologías:
 - Java: Lenguaje de programación principal.
 - JUnit y Mockito: Para escribir y ejecutar pruebas unitarias.
 - Git: Para control de versiones.
+- Excalidraw.com: Para realizar diagrama
 
 ## Estructura del proyecto
 
 El proyecto está estructurado de la siguiente manera:
 
-AlkeWallet/
-│
-├─ src/
-│ ├─ clases/ # Clases del proyecto
-│ ├─ test/ # Pruebas unitarias
-│
-├─ README.md # Este archivo
-├─ .gitignore # Archivos ignorados por Git
+AlkeWallet/  
+│  
+├─ src/  
+│ ├─ clases/ # Clases del proyecto  
+│ ├─ test/ # Pruebas unitarias  
+│  
+├─ README.md # Este archivo  
+├─ .gitignore # Archivos ignorados por Git  
 
 
 ## Pruebas Unitarias
@@ -58,4 +59,7 @@ git clone https://github.com/tu_usuario/AlkeWallet.git
 
 Las contribuciones son bienvenidas. Si encuentras algún error o deseas mejorar la aplicación, no dudes en abrir un issue o enviar un pull request.
 
+## Diagrama UML
+
+![Diagrama de clases](diagramas/Untitled-2024-03-19-1754_800.png)
 

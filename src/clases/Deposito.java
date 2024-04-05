@@ -5,7 +5,7 @@ public class Deposito implements Operacion {
 	// Atributo cuenta para almacenar la cuenta asociada al depósito
 	private Cuenta cuenta;
 	// Tipo de operación (en este caso, "depósito")
-	public String tipoOperacion;
+	private String tipoOperacion;
 
 	// Constructor de la clase Deposito que recibe una cuenta como parámetro
 	public Deposito(Cuenta cuenta) {

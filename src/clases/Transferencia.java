@@ -4,7 +4,7 @@ package clases;
 public class Transferencia implements Operacion {
 
 	private Cuenta cuenta; // Cuenta desde la cual se realiza la transferencia
-	public String tipoOperacion; // Tipo de operación (en este caso, "transferencia")
+	private String tipoOperacion; // Tipo de operación (en este caso, "transferencia")
 
 	// Constructor que recibe la cuenta desde la cual se realizará la transferencia
 	public Transferencia(Cuenta cuenta) {

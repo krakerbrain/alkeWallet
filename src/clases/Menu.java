@@ -10,9 +10,9 @@ public class Menu {
     // Cuenta asociada al menú
     private Cuenta cuenta;
     // Cadenas de colores para mejorar la presentación en la consola
-    public String TEXTO_VERDE = "\u001B[32m";
-    public String MENSAJE_ERROR = "\u001B[41m\u001B[37m";
-    public String CERRAR_COLOR = "\u001B[0m";
+    private String TEXTO_VERDE = "\u001B[32m";
+    private String MENSAJE_ERROR = "\u001B[41m\u001B[37m";
+    private String CERRAR_COLOR = "\u001B[0m";
 
     // Constructor que recibe una cuenta como parámetro
     public Menu(Cuenta cuenta) {

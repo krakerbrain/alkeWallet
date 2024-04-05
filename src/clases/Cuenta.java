@@ -5,10 +5,10 @@ import java.util.Random; // Importación de la clase Random
 //Clase que representa una cuenta bancaria
 public class Cuenta {
 	// Atributos de la cuenta
-	protected String usuario;
-	protected String rut;
-	protected int nroCuenta;
-	protected double saldo;
+	private String usuario;
+	private String rut;
+	private int nroCuenta;
+	private double saldo;
 	private Menu menu; // Menú asociado a la cuenta
 
 	// Constructor vacío
@@ -25,13 +25,6 @@ public class Cuenta {
 	}
 
 	// Métodos getter y setter para los atributos de la cuenta
-	public Menu getMenu() {
-		return menu;
-	}
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
 
 	public String getUsuario() {
 		return usuario;
