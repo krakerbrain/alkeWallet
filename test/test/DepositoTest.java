@@ -1,25 +1,22 @@
 package test;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import clases.Cuenta;
 import clases.Deposito;
 import clases.Menu;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class DepositoTest {
 
-    private Cuenta cuenta;
-    private Menu menuMock;
+    private static Cuenta cuenta;
+    private static Menu menuMock;
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         cuenta = new Cuenta();
-        menuMock = mock(Menu.class);
+        menuMock = Mockito.mock(Menu.class);
     }
 
     @Test
@@ -28,15 +25,15 @@ public class DepositoTest {
         double monto = 500;
 
         // Configurar el comportamiento del mock para solicitar datos
-        doReturn(monto).when(menuMock).solicitaDatosAUsuario("deposito");
+        Mockito.doReturn(monto).when(menuMock).solicitaDatosAUsuario("deposito");
 
         // Ejecutar la transacción de depósito
         deposito.ejecutarTransaccion(menuMock);
 
         // Verificar que el saldo se haya actualizado correctamente
-        assertEquals(monto, cuenta.getSaldo(), 0.001);
+        Assertions.assertEquals(monto, cuenta.getSaldo(), 0.001);
 
         // Verificar que se llamó al método transaccionExitosa
-        verify(menuMock).transaccionExitosa("deposito", monto);
+        Mockito.verify(menuMock).transaccionExitosa("deposito", monto);
     }
 }

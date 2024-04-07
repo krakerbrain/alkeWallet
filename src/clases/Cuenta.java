@@ -61,8 +61,7 @@ public class Cuenta {
 	// Método para generar un número de cuenta aleatorio
 	public int generaNumeroCuenta() {
 		Random random = new Random();
-		int numeroAleatorio = random.nextInt(90000000) + 10000000; // Genera un número aleatorio de 8 dígitos
-		return numeroAleatorio;
+        return random.nextInt(90000000) + 10000000;
 	}
 
 	// Método para seleccionar una operación bancaria

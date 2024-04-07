@@ -1,11 +1,7 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import clases.Cuenta;
@@ -13,13 +9,14 @@ import clases.Menu;
 import clases.Operacion;
 import clases.TransaccionFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class CuentaTest {
 	private static Cuenta cuenta;
 
 	@BeforeAll
 	public static void creaInstanciaCuenta() {
 		cuenta = new Cuenta();
-
 	}
 	
 	
@@ -63,18 +60,18 @@ class CuentaTest {
 	@Test
 	public void testObtenerOperacionNoNula() {
 		// Arrange
-		Menu mockMenu = mock(Menu.class);
+		Menu mockMenu = Mockito.mock(Menu.class);
 		TransaccionFactory transaccionFactory = new TransaccionFactory();
 
 		// Act & Assert
 		for (int opcion = 1; opcion <= 5; opcion++) {
 			// Simulamos la opción del menú
-			when(mockMenu.menuPpal()).thenReturn(opcion);
+			Mockito.when(mockMenu.menuPpal()).thenReturn(opcion);
 
 			// Verificamos si se creó la operación (no importa cuál)
 			Operacion operacion = transaccionFactory.obtenerOperacion(cuenta, opcion);
 			System.out.println(operacion);
-			assertNotEquals(null, operacion);
+			Assertions.assertNotEquals(null, operacion);
 		}
 	}
 	
@@ -86,19 +83,19 @@ class CuentaTest {
 	@Test
 	public void testObtenerOperacionSalirMenu() {
 		// Arrange
-		Menu mockMenu = mock(Menu.class);
+		Menu mockMenu = Mockito.mock(Menu.class);
 		TransaccionFactory transaccionFactory = new TransaccionFactory();
 
 		// Act
 		int opcion = 6; // Opción para salir del menú
 
 		// Simulamos la opción del menú
-		when(mockMenu.menuPpal()).thenReturn(opcion);
+		Mockito.when(mockMenu.menuPpal()).thenReturn(opcion);
 
 		// Verificamos si se obtiene null para la opción de salir del menú
 		Operacion operacion = transaccionFactory.obtenerOperacion(cuenta, opcion);
-		
-		assertEquals(null, operacion);
+
+        Assertions.assertNull(operacion);
 	}
 	/*
 	 * Se testea que el metodo revisaSaldo() devuelva true si el saldo de la cuenta
@@ -115,7 +112,7 @@ class CuentaTest {
 		boolean resultado = cuenta.revisaSaldo(50.0); // Monto menor que el saldo ficticio
 		System.out.println(resultado);
 		// Assert
-		assertTrue(resultado); // Verifica que el resultado sea true
+		Assertions.assertTrue(resultado); // Verifica que el resultado sea true
 	}
 	
 	/*
@@ -128,22 +125,20 @@ class CuentaTest {
 	@Test
 	public void testRevisaSaldoConSaldoInsuficiente() {
 		// Arrange
-		Cuenta cuentaMock = mock(Cuenta.class);
+		Cuenta cuentaMock = Mockito.mock(Cuenta.class);
 
 		double saldoFicticio = 50.0;
 		cuenta.setSaldo(saldoFicticio); // Establecemos un saldo ficticio insuficiente
 
 		// Act
 		boolean resultado = cuentaMock.revisaSaldo(100.0); // Monto mayor que el saldo ficticio
-		Mockito.doAnswer(new Answer<Object>() {
-			public Object answer(InvocationOnMock invocation) throws Throwable {
-				// Simular la selección de la opción 6 para salir del menú
-				System.out.println("Simulando la selección de la opción 6 para salir del menú");
-				return 6;
-			}
-		}).when(cuentaMock).seleccionarOperacion();
+		Mockito.doAnswer((Answer<Object>) invocation -> {
+            // Simular la selección de la opción 6 para salir del menú
+            System.out.println("Simulando la selección de la opción 6 para salir del menú");
+            return 6;
+        }).when(cuentaMock).seleccionarOperacion();
 		System.out.println(resultado);
 		// Assert
-		assertFalse(resultado);
+		Assertions.assertFalse(resultado);
 	}
 }

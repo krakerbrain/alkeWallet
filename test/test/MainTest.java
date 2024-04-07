@@ -1,7 +1,6 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import alkeWallet.Main;
@@ -19,10 +18,10 @@ class MainTest {
         Cuenta cuenta = Main.creaCuenta(rut, usuario);
 
         // Assert
-        assertEquals(rut, cuenta.getRut());
-        assertEquals(usuario, cuenta.getUsuario());
-        assertEquals(8, String.valueOf(cuenta.getNroCuenta()).length());
-        assertEquals(0, cuenta.getSaldo(), 0); 
+        Assertions.assertEquals(rut, cuenta.getRut());
+        Assertions.assertEquals(usuario, cuenta.getUsuario());
+        Assertions.assertEquals(8, String.valueOf(cuenta.getNroCuenta()).length());
+        Assertions.assertEquals(0, cuenta.getSaldo(), 0);
     }
 
 }
